@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-  printf("%d\nfirst: %s\n", argc, argv[1]);
+  printf("amount of provided arguments: %d\n", argc - 1);
+  printf("first element: %s\n", argv[1]);
   return 0;
 }
