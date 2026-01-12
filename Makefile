@@ -12,9 +12,6 @@ all: $(OBJ)
 	ar rcs $(AR) $(OBJ)
 	$(CC) $(CFLAGS) $(MAIN) $(AR) -o $(NAME)
 
-libft:
-	make -C libft
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
