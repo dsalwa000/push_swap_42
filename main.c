@@ -11,25 +11,13 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-void add_to_stack(Node *a, int value)
-{
-  Node next;
-  next.value = value;
-  
-  
-}
 
 int main(int argc, char* argv[])
 {
-  printf("amount of provided arguments: %d\n", argc - 1);
-  printf("first provided element: %s\n", argv[1]);
+  Node*   a;
+  // Node  b;
 
-  while (ft_strlen)
-  
-  Node a;
-  Node b;
-  
+  a = starting_stack(argv_int(argc - 1, argv), argc - 1);
+  display_stack(a, 'a');
   return 0;
 }
