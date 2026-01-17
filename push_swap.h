@@ -11,8 +11,12 @@ typedef struct Node
 }					Node;
 int*    argv_int(int length, char** argv);
 Node*   starting_stack(int* int_argv, int length);
-Node    *add_to_stack(Node* a, int value);
+Node*   add_to_stack(Node* a, int value, int position);
+Node*   swap(Node* node);
+Node*   sa(Node* a);
+Node*   sb(Node* b);
 
+// utils_functions.c
 // only for testing, remove after!!!
 void    display_stack(Node* stack, char ab);
 

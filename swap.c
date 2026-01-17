@@ -1,28 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/10 23:56:46 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/12 21:37:11 by dsalwa           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
-void    sa(Node *first, Node *second)
+Node* swap(Node* first)
 {
-    Node save;
-    
-    if (first == NULL || second == NULL)
-        return ;
-    if (second->prev == NULL)
-    {
-        first->next = second;
-        second->next = NULL;
-        first->prev = NULL;
-        second->prev = first;
-    }
+  Node*   second;
+  
+  if (first == NULL)
+    return first;
+  if (first->prev == NULL)
+    return first;
+  second = first->prev;
+  first->next = second;
+  first->position = 1;
+  if (second->prev == NULL)
+    first->prev = NULL;
+  else
+    first->prev = second->prev;
+  second->prev = first;
+  second->next = NULL;
+  second->position = 0;
+  first->prev->next = first;
+  return (second);
+}
+
+Node* sa(Node* a)
+{
+  return(swap(a));
+}
+
+Node* sb(Node* b)
+{
+  return(swap(b));
 }

@@ -1,5 +1,6 @@
 # CC = cc
 # Dla MacBooka gcc!
+# Delete before evaluation
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -40,8 +41,13 @@ SRC_LIBFT = libft/ft_atoi.c \
   libft/ft_tolower.c \
   libft/ft_toupper.c
 SRC_PUSH_SWAP = push_swap.c \
-  fill_a.c
-OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o)
+  fill_a.c \
+  swap.c
+
+# ONLY FOR TESTING, REMOVE!
+UTILS = utils_functions.c
+
+OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o) $(UTILS:.c=.o)
 MAIN = main.c
 
 all: $(OBJ)

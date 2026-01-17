@@ -24,43 +24,28 @@ Node* starting_stack(int* int_argv, int length)
   a = NULL;
   while (length > i)
   {
-    a = add_to_stack(a, int_argv[i]);
+    a = add_to_stack(a, int_argv[length - i - 1], length - i - 1);
     i++;
   }
   return (a);
 }
 
-Node *add_to_stack(Node* a, int value)
+Node* add_to_stack(Node* a, int value, int position)
 {
   Node*   newNode;
   
   newNode = (Node*)malloc(sizeof(Node));
   newNode->value = value;
   newNode->next = NULL;
+  newNode->position = position;
   if (a == NULL)
   {
-    newNode->position = 0;
     newNode->prev = NULL;
   }
   else
   {
     a->next = newNode;
-    newNode->position = a->position + 1;
     newNode->prev = a;
   }
   return (newNode);
-}
-
-// only for testing, remove after!!!
-void display_stack(Node* stack, char ab)
-{
-  while (stack->prev != NULL)
-    stack = stack->prev;
-  while (stack->next != NULL)
-  {
-    printf("%d\n", stack->value);
-    stack = stack->next;
-  }
-  printf("%d\n", stack->value);
-  printf("_\n%c\n", ab);
 }
