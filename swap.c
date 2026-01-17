@@ -22,12 +22,24 @@ Node* swap(Node* first)
   return (second);
 }
 
-Node* sa(Node* a)
+void sa(Node** a)
 {
-  return(swap(a));
+  if (!a || !*a)
+    return ;
+  *a = swap(*a);
+  ft_putstr_fd("sa", 1);
 }
 
-Node* sb(Node* b)
+void sb(Node** b)
 {
-  return(swap(b));
+  if (!b || !*b)
+    return ;
+  *b = swap(*b);
+  ft_putstr_fd("sb", 1);
+}
+
+void ss(Node** a, Node** b)
+{
+  sa(*a);
+  sb(*b);
 }

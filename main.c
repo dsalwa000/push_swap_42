@@ -20,9 +20,9 @@ int main(int argc, char* argv[])
   a = starting_stack(argv_int(argc - 1, argv), argc - 1);
   // b = NULL;
   display_stack(a, 'a');
-  a = sa(a);
+  sa(&a);
   display_stack(a, 'a');
-  a = sa(a);
+  sa(&a);
   display_stack(a, 'a');
   return 0;
 }
