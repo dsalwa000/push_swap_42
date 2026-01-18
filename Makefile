@@ -40,14 +40,15 @@ SRC_LIBFT = libft/ft_atoi.c \
   libft/ft_substr.c \
   libft/ft_tolower.c \
   libft/ft_toupper.c
-SRC_PUSH_SWAP = push_swap.c \
-  fill_a.c \
-  swap.c
+SRC_PUSH_SWAP = fill_a.c \
+  swap.c \
+  push.c \
+  utils.c
 
 # ONLY FOR TESTING, REMOVE!
-UTILS = utils_functions.c
+UTILS_DEV = utils_dev.c
 
-OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o) $(UTILS:.c=.o)
+OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o) $(UTILS_DEV:.c=.o)
 MAIN = main.c
 
 all: $(OBJ)

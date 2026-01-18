@@ -15,14 +15,16 @@
 int main(int argc, char* argv[])
 {
   Node*   a;
-  // Node*   b;
+  Node*   b;
 
   a = starting_stack(argv_int(argc - 1, argv), argc - 1);
-  // b = NULL;
+  b = NULL;
   display_stack(a, 'a');
-  sa(&a);
+  pb(&a, &b);
   display_stack(a, 'a');
-  sa(&a);
+  display_stack(b, 'b');
+  pa(&a, &b);
   display_stack(a, 'a');
+  display_stack(b, 'b');
   return 0;
 }

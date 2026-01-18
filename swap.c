@@ -27,7 +27,7 @@ void sa(Node** a)
   if (!a || !*a)
     return ;
   *a = swap(*a);
-  ft_putstr_fd("sa", 1);
+  ft_putstr_fd("sa\n", 1);
 }
 
 void sb(Node** b)
@@ -35,11 +35,13 @@ void sb(Node** b)
   if (!b || !*b)
     return ;
   *b = swap(*b);
-  ft_putstr_fd("sb", 1);
+  ft_putstr_fd("sb\n", 1);
 }
 
 void ss(Node** a, Node** b)
 {
-  sa(*a);
-  sb(*b);
+  if (!a || !*a || !b || !*b)
+    return ;
+  sa(a);
+  sb(b);
 }

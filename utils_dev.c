@@ -3,11 +3,10 @@
 // only for testing, remove after!!!
 void display_stack(Node* stack, char ab)
 {
-  while (stack->prev != NULL)
+  while (stack != NULL)
   {
     printf("value: %d, position: %d\n", stack->value, stack->position);
     stack = stack->prev;
   }
-  printf("value: %d, position: %d\n", stack->value, stack->position);
   printf("-\n%c\n\n", ab);
 }
