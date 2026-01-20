@@ -23,27 +23,29 @@ void rotate(Node** node)
   determine_positions(*node);
 }
 
-void ra(Node **a)
+void ra(Node **a, int rr)
 {
   if (!a || !*a)
     return ;
   rotate(a);
-  ft_putstr_fd("ra\n", 1);
+  if (!rr)
+    ft_putstr_fd("ra\n", 1);
 }
 
-void rb(Node **b)
+void rb(Node **b, int rr)
 {
   if (!b || !*b)
     return ;
   rotate(b);
-  ft_putstr_fd("rb\n", 1);
+  if (!rr)
+    ft_putstr_fd("rb\n", 1);
 }
 
 void rr(Node **a, Node **b)
 {
   if (!a || !*a || !b || !*b)
     return ;
-  ra(a);
-  rb(b);
+  ra(a, 1);
+  rb(b, 1);
   ft_putstr_fd("rr\n", 1);
 }

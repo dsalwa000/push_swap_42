@@ -1,7 +1,4 @@
-# CC = cc
-# Dla MacBooka gcc!
-# Delete before evaluation
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 AR = push_swap.a

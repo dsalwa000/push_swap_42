@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:48:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/12 22:33:55 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/20 19:56:13 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,14 @@
 int main(int argc, char* argv[])
 {
   Node*   a;
-  Node*   b;
+  // Node*   b;
 
-  a = starting_stack(argv_int(argc - 1, argv), argc - 1);
-  b = NULL;
+  if (argc == 0 || (argc == 2 && !argv[1][0]))
+    return (1);
+  else if (argc == 2)
+    argv = ft_split(argv[1], ' ');
+  a = starting_stack((argv, argc), argv_length(argv), argc);
   display_stack(a, 'a');
-  ra(&a);
-  display_stack(a, 'a');
-  display_stack(b, 'b');
-  pb(&a, &b);
-  display_stack(a, 'a');
-  display_stack(b, 'b');
-  rra(&a);
-  display_stack(a, 'a');
-  display_stack(b, 'b');
-  rrr(&a, &b);
-  display_stack(a, 'a');
-  display_stack(b, 'b');
+  // b = NULL;
   return 0;
 }

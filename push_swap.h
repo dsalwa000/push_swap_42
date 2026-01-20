@@ -9,8 +9,9 @@ typedef struct Node
     struct Node     *prev;
     int             position;
 }					Node;
-int*    argv_int(int length, char** argv);
-Node*   starting_stack(int* int_argv, int length);
+int     argv_length(char **argv);
+int*    argv_int(char** argv, int argc);
+Node*   starting_stack(int* int_argv, int length, int argc);
 Node*   add_to_stack(Node* a, int value, int position);
 
 Node*   swap(Node* node);
@@ -23,13 +24,13 @@ void    pa(Node** a, Node** b);
 void    pb(Node** a, Node** b);
 
 void    rotate(Node** node);
-void    ra(Node **a);
-void    rb(Node **b);
+void    ra(Node **a, int rr);
+void    rb(Node **b, int rr);
 void    rr(Node **a, Node **b);
 
 void    reverse_rotate(Node** node);
-void    rra(Node **a);
-void    rrb(Node **b);
+void    rra(Node **a, int rrr);
+void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
 void determine_positions(Node* stack);
