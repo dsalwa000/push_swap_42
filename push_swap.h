@@ -22,6 +22,16 @@ void    push(Node**a, Node** b);
 void    pa(Node** a, Node** b);
 void    pb(Node** a, Node** b);
 
+void    rotate(Node** node);
+void    ra(Node **a);
+void    rb(Node **b);
+void    rr(Node **a, Node **b);
+
+void    reverse_rotate(Node** node);
+void    rra(Node **a);
+void    rrb(Node **b);
+void    rrr(Node **a, Node **b);
+
 void determine_positions(Node* stack);
 
 // utils_functions.c

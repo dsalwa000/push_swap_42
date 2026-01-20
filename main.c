@@ -20,10 +20,16 @@ int main(int argc, char* argv[])
   a = starting_stack(argv_int(argc - 1, argv), argc - 1);
   b = NULL;
   display_stack(a, 'a');
+  ra(&a);
+  display_stack(a, 'a');
+  display_stack(b, 'b');
   pb(&a, &b);
   display_stack(a, 'a');
   display_stack(b, 'b');
-  pa(&a, &b);
+  rra(&a);
+  display_stack(a, 'a');
+  display_stack(b, 'b');
+  rrr(&a, &b);
   display_stack(a, 'a');
   display_stack(b, 'b');
   return 0;
