@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 19:00:44 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/20 19:52:48 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/20 20:22:09 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ int* argv_int(char** argv, int argc)
   int   i;
   int*  int_argv;
 
-  if (argc == 2)
-    i = 0;
-  else
+  i = 0;
+  if (argc != 2)
     i = 1;
   int_argv = (int*)malloc(argv_length(argv) * sizeof(int));
   while (argv[i] != NULL)
@@ -47,7 +46,6 @@ int* argv_int(char** argv, int argc)
 
 Node* starting_stack(int* int_argv, int length, int argc)
 {
-  printf("length: %d\n", length);
   Node* a;
   int   i;
 
