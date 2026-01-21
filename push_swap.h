@@ -21,9 +21,9 @@ typedef struct Node
     struct Node     *prev;
     int             position;
 }					Node;
-int     argv_length(char **argv);
-int*    argv_int(char** argv, int argc);
-Node*   starting_stack(int* int_argv, int length, int argc);
+int     argv_int_length(int *argv);
+int*    argv_int(char** argv, int argc, int length);
+Node*   starting_stack(char** argv, int argc);
 Node*   add_to_stack(Node* a, int value, int position);
 
 Node*   swap(Node* node);

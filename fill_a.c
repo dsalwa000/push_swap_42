@@ -12,27 +12,30 @@
 
 #include "push_swap.h"
 
-int argv_length(char **argv)
+int argv_length(char** argv)
 {
   int   length;
 
-  length = 0;
+  length = 0;    
   while (argv[length] != NULL)
   {
     length++;
   }
+  if (ft_strncmp(argv[0], "./push_swap", 12) == 0)
+    length--;
   return (length);
 }
 
-int* argv_int(char** argv, int argc)
+int* argv_int(char** argv, int argc, int length)
 {
-  int   i;
-  int*  int_argv;
+  int     i;
+  int*    int_argv;
 
-  i = 0;
-  if (argc != 2)
+  if (argc == 2)
+    i = 0;
+  else
     i = 1;
-  int_argv = (int*)malloc(argv_length(argv) * sizeof(int));
+  int_argv = (int*)malloc(length * sizeof(int));
   while (argv[i] != NULL)
   {
     if (argc == 2)
@@ -44,15 +47,17 @@ int* argv_int(char** argv, int argc)
   return (int_argv);
 }
 
-Node* starting_stack(int* int_argv, int length, int argc)
+Node* starting_stack(char** argv, int argc)
 {
   Node* a;
   int   i;
+  int*  int_argv;
+  int   length;
 
-  i = 0;
   a = NULL;
-  if (argc != 2)
-    length--;
+  i = 0;
+  length = argv_length(argv);
+  int_argv = argv_int(argv, argc, length);
   while (length > i)
   {
     a = add_to_stack(a, int_argv[length - i - 1], length - i - 1);

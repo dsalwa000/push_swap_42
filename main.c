@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     return (1);
   else if (argc == 2)
     argv = ft_split(argv[1], ' ');
-  a = starting_stack(argv_int(argv, argc), argv_length(argv), argc);
+  a = starting_stack(argv, argc);
   b = NULL;
   display_stack(a, 'a');
   display_stack(b, 'b');
