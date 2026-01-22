@@ -42,7 +42,8 @@ SRC_PUSH_SWAP = fill_a.c \
   push.c \
   utils.c \
   rotate.c \
-  reverse_rotate.c
+  reverse_rotate.c \
+  phase_one.c
 
 # ONLY FOR TESTING, REMOVE!
 UTILS_DEV = utils_dev.c

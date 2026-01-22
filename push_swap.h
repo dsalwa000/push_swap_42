@@ -24,7 +24,7 @@ typedef struct Node
 int     argv_int_length(int *argv);
 int*    argv_int(char** argv, int argc, int length);
 Node*   starting_stack(char** argv, int argc);
-Node*   add_to_stack(Node* a, int value, int position);
+Node*   add_to_stack(Node* a, int value);
 
 Node*   swap(Node* node);
 void    sa(Node** a);
@@ -45,10 +45,14 @@ void    rra(Node **a, int rrr);
 void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
-void determine_positions(Node* stack);
+void    init_b(Node** a, Node** b);
+int     effective_b_node_poistion(Node* b, int value);
+
+void    determine_positions(Node* stack);
 
 // utils_functions.c
 // only for testing, remove after!!!
 void    display_stack(Node* stack, char ab);
+void    display_stacks(Node *a, Node *b);
 
 #endif

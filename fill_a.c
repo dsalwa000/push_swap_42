@@ -60,20 +60,20 @@ Node* starting_stack(char** argv, int argc)
   int_argv = argv_int(argv, argc, length);
   while (length > i)
   {
-    a = add_to_stack(a, int_argv[length - i - 1], length - i - 1);
+    a = add_to_stack(a, int_argv[length - i - 1]);
     i++;
   }
+  determine_positions(a);
   return (a);
 }
 
-Node* add_to_stack(Node* a, int value, int position)
+Node* add_to_stack(Node* a, int value)
 {
   Node*   newNode;
   
   newNode = (Node*)malloc(sizeof(Node));
   newNode->value = value;
   newNode->next = NULL;
-  newNode->position = position;
   if (a == NULL)
   {
     newNode->prev = NULL;

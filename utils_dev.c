@@ -10,3 +10,10 @@ void display_stack(Node* stack, char ab)
   }
   printf("-\n%c\n\n", ab);
 }
+
+void display_stacks(Node *a, Node *b)
+{
+  display_stack(a, 'a');
+  display_stack(b, 'b');
+  printf("__________\n\n");
+}

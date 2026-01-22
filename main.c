@@ -17,13 +17,14 @@ int main(int argc, char* argv[])
   Node*   a;
   Node*   b;
 
-  if (argc == 0 || (argc == 2 && !argv[1][0]))
+  if (argc == 1 || (argc == 2 && !argv[1][0]))
     return (1);
   else if (argc == 2)
     argv = ft_split(argv[1], ' ');
   a = starting_stack(argv, argc);
   b = NULL;
-  display_stack(a, 'a');
-  display_stack(b, 'b');
+  init_b(&a, &b);
+  printf("%d\n", effective_b_node_poistion(b, 5));
+  display_stacks(a, b);
   return 0;
 }
