@@ -46,7 +46,9 @@ void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
 void    init_b(Node** a, Node** b);
-int     cost(Node* b, int value);
+int     rb_moves(Node* b, int a_value);
+int*    b_moves(Node* b, int a_value);
+int     smallest_cost(int* a_cost, int* b_cost);
 void    determine_costs(Node* a, Node* b);
 
 void    determine_positions(Node* stack);

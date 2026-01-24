@@ -63,6 +63,7 @@ int smallest_cost(int* a_cost, int* b_cost)
   combinations[2] = a_cost[0] + b_cost[1];
   combinations[3] = a_cost[1] + b_cost[0];
   i = 0;
+  smallest_cost = INT_MAX;
   while (4 > i)
   {
     if (combinations[i] < smallest_cost)
@@ -89,12 +90,6 @@ void determine_costs(Node* a, Node *b)
     b_cost = b_moves(b, a->value);
     a_cost[0] = a->position;
     a_cost[1] = a_length - a_cost[0];
-
-    printf("a[0]: %d\n", a_cost[0]);
-    printf("a[1]: %d\n", a_cost[1]);
-    printf("b[0]: %d\n", b_cost[0]);
-    printf("b[1]: %d\n", b_cost[1]);
-
     final_cost = smallest_cost(a_cost, b_cost);
     printf("cost %d: %d\n", i, final_cost);
     i++;
