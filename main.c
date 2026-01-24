@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
   a = starting_stack(argv, argc);
   b = NULL;
   init_b(&a, &b);
-  printf("%d\n", effective_b_node_poistion(b, 5));
   display_stacks(a, b);
+  determine_costs(a, b);
   return 0;
 }

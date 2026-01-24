@@ -26,3 +26,16 @@ void determine_positions(Node* stack)
     i++;
   }
 }
+
+int stack_length(Node *stack)
+{
+  int length;
+
+  length = 0;
+  while (stack != NULL)
+  {
+    length++;
+    stack = stack->prev;
+  }
+  return (length);
+}

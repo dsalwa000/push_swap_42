@@ -46,9 +46,11 @@ void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
 void    init_b(Node** a, Node** b);
-int     effective_b_node_poistion(Node* b, int value);
+int     cost(Node* b, int value);
+void    determine_costs(Node* a, Node* b);
 
 void    determine_positions(Node* stack);
+int     stack_length(Node* stack);
 
 // utils_functions.c
 // only for testing, remove after!!!

@@ -6,23 +6,98 @@ void init_b(Node** a, Node** b)
   pb(a, b);
 }
 
-// musimy teraz znalezc max pozycje jezeli nie ma 
-// mniejszej liczby od naszego value
-int effective_b_node_poistion(Node* b, int value)
+int rb_moves(Node* b, int a_value)
 {
-  int max;
-  int position;
+  int   min_max[2];
+  int   max[2];
 
-  max = b->value;
-  position = 0;
+  min_max[0] = INT_MIN;
+  min_max[1] = b->position;
+  max[0] = a_value;
+  max[1] = b->position;
   while (b != NULL)
   {
-    if (b->value < value && max < value)
+    if (b->value < a_value && b->value > min_max[0])
     {
-      position = b->position;
-      max = b->value;
+      min_max[0] = b->value;
+      min_max[1] = b->position;
+    }
+    if (b->value > max[0] && b->value > max[0])
+    {
+      max[0] = b->value;
+      max[1] = b->position;
     }
     b = b->prev;
   }
-  return (position);
+  if (min_max[0] != INT_MIN)
+    return (min_max[1]);
+  return (max[1]);
+}
+
+int* b_moves(Node* b, int a_value)
+{
+  int*  b_moves;
+
+  b_moves = (int*)malloc(2 * sizeof(int));
+  if (!b_moves)
+    return NULL;
+  b_moves[0] = rb_moves(b, a_value);
+  b_moves[1] = stack_length(b) - b_moves[0];
+  return (b_moves);
+}
+
+int smallest_cost(int* a_cost, int* b_cost)
+{
+  int*  combinations;
+  int   smallest_cost;
+  int   i;
+  combinations = (int*)malloc(4 * sizeof(int));
+  if (a_cost[0] > b_cost[0])
+    combinations[0] = a_cost[0];
+  else
+    combinations[0] = b_cost[0];
+  if (a_cost[1] > b_cost[1])
+    combinations[1] = a_cost[1];
+  else
+    combinations[1] = b_cost[1];
+  combinations[2] = a_cost[0] + b_cost[1];
+  combinations[3] = a_cost[1] + b_cost[0];
+  i = 0;
+  while (4 > i)
+  {
+    if (combinations[i] < smallest_cost)
+      smallest_cost = combinations[i];
+    i++;
+  }
+  return (smallest_cost);
+}
+
+void determine_costs(Node* a, Node *b)
+{
+  int   a_length;
+  int*  a_cost;
+  int*  b_cost;
+  int   final_cost;
+  int   i;
+
+  a_cost = (int*)malloc(2 * sizeof(int));
+  a_length = stack_length(a);
+  i = 0;
+  while (a != NULL)
+  {
+    final_cost = 0;
+    b_cost = b_moves(b, a->value);
+    a_cost[0] = a->position;
+    a_cost[1] = a_length - a_cost[0];
+
+    printf("a[0]: %d\n", a_cost[0]);
+    printf("a[1]: %d\n", a_cost[1]);
+    printf("b[0]: %d\n", b_cost[0]);
+    printf("b[1]: %d\n", b_cost[1]);
+
+    final_cost = smallest_cost(a_cost, b_cost);
+    printf("cost %d: %d\n", i, final_cost);
+    i++;
+    a = a->prev;
+  }
 }
