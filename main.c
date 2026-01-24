@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+// Majac pozycje trzeba wykonac potrzebne na niej operacje
+
 int main(int argc, char* argv[])
 {
   Node*   a;
@@ -24,7 +26,9 @@ int main(int argc, char* argv[])
   a = starting_stack(argv, argc);
   b = NULL;
   init_b(&a, &b);
+  pb(&a, &b);
+  pb(&a, &b);
   display_stacks(a, b);
-  determine_costs(a, b);
+  printf("best position: %d", effecient_a_node_position(a, b));
   return 0;
 }

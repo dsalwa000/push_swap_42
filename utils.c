@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void init_b(Node** a, Node** b)
+{
+  pb(a, b);
+  pb(a, b);
+}
+
 void determine_positions(Node* stack)
 {
   int i;
