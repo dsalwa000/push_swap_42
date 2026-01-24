@@ -29,6 +29,5 @@ int main(int argc, char* argv[])
   pb(&a, &b);
   pb(&a, &b);
   display_stacks(a, b);
-  printf("best position: %d", effecient_a_node_position(a, b));
   return 0;
 }

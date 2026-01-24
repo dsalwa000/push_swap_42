@@ -46,9 +46,11 @@ void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
 int     rb_moves(Node* b, int a_value);
-int*    b_moves(Node* b, int a_value);
-int*    combinations(int* a_cost, int* b_cost);
+int*    a_cost(Node* node);
+int*    b_cost(Node* b, int a_value);
+int*    combinations(Node* node, Node* b, int a_value);
 int     costs(int* combinations);
+
 int     effecient_a_node_position(Node* a, Node* b);
 
 void    init_b(Node** a, Node** b);
