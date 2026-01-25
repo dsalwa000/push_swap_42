@@ -48,14 +48,18 @@ void    rrr(Node **a, Node **b);
 int     rb_moves(Node* b, int a_value);
 int*    a_cost(Node* node);
 int*    b_cost(Node* b, int a_value);
-int*    combinations(Node* node, Node* b, int a_value);
-int     costs(int* combinations);
+int*    combinations(Node* node, Node* b);
+int     costs(int* combinations, int return_type);
 
-int     effecient_a_node_position(Node* a, Node* b);
+void    r_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
+void    rr_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
+void    mix_movements(Node** a, Node** b, int* a_moves, int* b_moves, int type);
 
 void    init_b(Node** a, Node** b);
 void    determine_positions(Node* stack);
 int     stack_length(Node* stack);
+int     effecient_a_node_position(Node* a, Node* b);
+void    use_efficent_position(Node** a, Node** b);
 
 // utils_functions.c
 // only for testing, remove after!!!

@@ -50,7 +50,7 @@ int* b_cost(Node* b, int a_value)
   return (b_moves);
 }
 
-int* combinations(Node* node, Node* b, int a_value)
+int* combinations(Node* node, Node* b)
 {
   int*  combinations;
   int*  a_moves;
@@ -59,20 +59,24 @@ int* combinations(Node* node, Node* b, int a_value)
   combinations = (int*)malloc(4 * sizeof(int));
   a_moves = a_cost(node);
   b_moves = b_cost(b, node->value);
+  
   if (a_moves[0] > b_moves[0])
     combinations[0] = a_moves[0];
   else
     combinations[0] = b_moves[0];
+
   if (a_moves[1] > b_moves[1])
     combinations[1] = a_moves[1];
   else
     combinations[1] = b_moves[1];
+
   combinations[2] = a_moves[0] + b_moves[1];
+
   combinations[3] = a_moves[1] + b_moves[0];
   return (combinations);
 }
 
-int costs(int* combinations)
+int costs(int* combinations, int return_type)
 {
   int   costs;
   int   type;
@@ -90,5 +94,7 @@ int costs(int* combinations)
     }
     i++;
   }
+  if (return_type)
+    return (type);
   return (costs);
 }
