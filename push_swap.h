@@ -65,9 +65,10 @@ void    sort_three(Node** a);
 void    move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
 void    use_efficent_position(Node** a, Node** b);
 void    phase_one(Node **a, Node** b);
+void    phase_two(Node** a, Node** b);
 
 int     find_optimal_a(Node* a, int value);
-void    push_optimal_a(Node** a, Node** b, int value);
+void    push_optimal_a(Node** a, Node** b);
 
 // utils_functions.c
 // only for testing, remove after!!!

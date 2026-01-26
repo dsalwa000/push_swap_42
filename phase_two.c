@@ -21,7 +21,12 @@ int find_optimal_a(Node* a, int value)
     optimal_position = 0;
     while (a != NULL)
     {
-        if (value > a->value && a->value > optimal_value)
+        if (value > a->value && a->value < optimal_value)
+        {
+            optimal_value = a->value;
+            optimal_position = a->position;
+        }
+        if (value < a->value && a->value < optimal_value)
         {
             optimal_value = a->value;
             optimal_position = a->position;
@@ -31,13 +36,13 @@ int find_optimal_a(Node* a, int value)
     return (optimal_position);
 }
 
-void push_optimal_a(Node** a, Node** b, int value)
+void push_optimal_a(Node** a, Node** b)
 {
     int opt_position;
     int a_length;
     int i;
 
-    opt_position = find_optimal_a(*a, value);
+    opt_position = find_optimal_a(*a, (*b)->value);
     a_length = stack_length(*a);
     if ((a_length / 2) >= opt_position)
     {
@@ -56,4 +61,10 @@ void push_optimal_a(Node** a, Node** b, int value)
         }
     }
     pa(a, b);
+}
+
+void phase_two(Node** a, Node** b)
+{
+    while (*b)
+        push_optimal_a(a, b);
 }

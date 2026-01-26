@@ -28,9 +28,7 @@ int main(int argc, char* argv[])
   phase_one(&a, &b);
   sort_three(&a);
   display_stacks(a, b);
-  push_optimal_a(&a, &b, b->value);
-  display_stacks(a, b);
-  push_optimal_a(&a, &b, b->value);
+  phase_two(&a, &b);
   display_stacks(a, b);
   return 0;
 }
