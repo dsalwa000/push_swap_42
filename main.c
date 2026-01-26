@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 int main(int argc, char* argv[])
 {
   Node*   a;
@@ -25,9 +24,10 @@ int main(int argc, char* argv[])
   a = starting_stack(argv, argc);
   b = NULL;
   init_b(&a, &b);
-  pb(&a, &b);
   display_stacks(a, b);
   phase_one(&a, &b);
+  display_stacks(a, b);
+  sort_three(&a);
   display_stacks(a, b);
   return 0;
 }

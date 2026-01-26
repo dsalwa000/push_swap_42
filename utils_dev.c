@@ -18,10 +18,6 @@ void display_stacks(Node *a, Node *b)
   printf("__________\n\n");
 }
 
-// warto sobie robić powtarzalne utils funkcje do 
-// sprawdzania rzeczy
-// nie warto pisać tego samego sprawdzającego kodu
-// over and over again
 void show_combinations(int* combinations)
 {
   printf("c[0]: %d\n", combinations[0]);

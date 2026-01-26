@@ -25,7 +25,6 @@ void rr_movement(Node** a, Node** b, int* bigger, int* smaller, int type)
   int i;
 
   i = 0;
-  printf("hey");
   while (i < smaller[1])
   {
     rrr(a, b);

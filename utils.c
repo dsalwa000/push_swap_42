@@ -45,3 +45,20 @@ int stack_length(Node *stack)
   }
   return (length);
 }
+
+void sort_three(Node** a)
+{
+  int first = (*a)->value;
+  int second = (*a)->prev->value;
+  int third = (*a)->prev->prev->value;
+
+  if (first > second && first > third)
+    ra(a, 0);
+  else if (second > first && second > third)
+    rra(a, 0);
+  
+  first = (*a)->value;
+  second = (*a)->prev->value;
+  if (first > second)
+    sa(a);
+}

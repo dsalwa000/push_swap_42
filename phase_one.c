@@ -72,7 +72,6 @@ void phase_one(Node **a, Node** b)
   while (length > 3)
   {
     use_efficent_position(a, b);
-    display_stacks(*a, *b);
     length--;
   }
 }

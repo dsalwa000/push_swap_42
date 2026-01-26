@@ -61,6 +61,7 @@ void    type_three_movements(Node** a, Node** b, int* a_moves, int* b_moves);
 int     effecient_a_node_position(Node* a, Node* b);
 void    determine_positions(Node* stack);
 int     stack_length(Node* stack);
+void    sort_three(Node** a);
 void    move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
 void    use_efficent_position(Node** a, Node** b);
 void    phase_one(Node **a, Node** b);
