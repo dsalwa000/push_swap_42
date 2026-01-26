@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:28:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/20 20:28:40 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/26 19:24:41 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ void    sort_three(Node** a);
 void    move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
 void    use_efficent_position(Node** a, Node** b);
 void    phase_one(Node **a, Node** b);
+
+int     find_optimal_a(Node* a, int value);
+void    push_optimal_a(Node** a, Node** b, int value);
 
 // utils_functions.c
 // only for testing, remove after!!!

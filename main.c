@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:48:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/20 20:31:35 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/26 21:09:16 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ int main(int argc, char* argv[])
   init_b(&a, &b);
   display_stacks(a, b);
   phase_one(&a, &b);
-  display_stacks(a, b);
   sort_three(&a);
+  display_stacks(a, b);
+  push_optimal_a(&a, &b, b->value);
+  display_stacks(a, b);
+  push_optimal_a(&a, &b, b->value);
   display_stacks(a, b);
   return 0;
 }
