@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-// Majac pozycje trzeba wykonac potrzebne na niej operacje
 
 int main(int argc, char* argv[])
 {
@@ -27,9 +26,8 @@ int main(int argc, char* argv[])
   b = NULL;
   init_b(&a, &b);
   pb(&a, &b);
-  pb(&a, &b);
   display_stacks(a, b);
-  use_efficent_position(&a, &b);
+  phase_one(&a, &b);
   display_stacks(a, b);
   return 0;
 }

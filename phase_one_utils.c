@@ -28,13 +28,13 @@ int rb_moves(Node* b, int a_value)
   return (max[1]);
 }
 
-int* a_cost(Node* node)
+int* a_cost(Node* node, int a_length)
 {
   int*  a_cost;
 
   a_cost = (int*)malloc(2 * sizeof(2));
   a_cost[0] = node->position;
-  a_cost[1] = stack_length(node) - a_cost[0];
+  a_cost[1] = a_length - a_cost[0];
   return (a_cost);
 }
 
@@ -50,28 +50,24 @@ int* b_cost(Node* b, int a_value)
   return (b_moves);
 }
 
-int* combinations(Node* node, Node* b)
+int* combinations(Node* node, Node* b, int a_length)
 {
   int*  combinations;
   int*  a_moves;
   int*  b_moves;
 
   combinations = (int*)malloc(4 * sizeof(int));
-  a_moves = a_cost(node);
+  a_moves = a_cost(node, a_length);
   b_moves = b_cost(b, node->value);
-  
   if (a_moves[0] > b_moves[0])
     combinations[0] = a_moves[0];
   else
     combinations[0] = b_moves[0];
-
   if (a_moves[1] > b_moves[1])
     combinations[1] = a_moves[1];
   else
     combinations[1] = b_moves[1];
-
   combinations[2] = a_moves[0] + b_moves[1];
-
   combinations[3] = a_moves[1] + b_moves[0];
   return (combinations);
 }
