@@ -21,7 +21,7 @@ typedef struct Node
     struct Node     *prev;
     int             position;
 }					Node;
-int     argv_int_length(int *argv);
+int     argv_length(char** argv);
 int*    argv_int(char** argv, int argc, int length);
 Node*   starting_stack(char** argv, int argc);
 Node*   add_to_stack(Node* a, int value);
@@ -45,30 +45,31 @@ void    rra(Node **a, int rrr);
 void    rrb(Node **b, int rrr);
 void    rrr(Node **a, Node **b);
 
-int     rb_moves(Node* b, int a_value);
+void    init_b(Node** a, Node** b);
+void    determine_positions(Node* stack);
+int     stack_length(Node *stack);
+void    sort_three(Node** a);
+
+Node*   find_min_node(Node* a);
+int     find_optimal_a(Node* a, int value_b);
+void    push_optimal_a(Node** a, Node** b);
+void    push_all_to_a(Node** a, Node** b);
+
+int     count_rb(Node* b, int a_value);
 int*    a_cost(Node* node, int a_length);
 int*    b_cost(Node* b, int a_value);
 int*    combinations(Node* node, Node* b, int a_length);
 int     costs(int* combinations, int return_type);
-
-void    init_b(Node** a, Node** b);
 
 void    r_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
 void    rr_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
 void    type_two_movements(Node** a, Node** b, int* a_moves, int* b_moves);
 void    type_three_movements(Node** a, Node** b, int* a_moves, int* b_moves);
 
-int     effecient_a_node_position(Node* a, Node* b);
-void    determine_positions(Node* stack);
-int     stack_length(Node* stack);
-void    sort_three(Node** a);
-void    move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
-void    use_efficent_position(Node** a, Node** b);
-void    phase_one(Node **a, Node** b);
-void    phase_two(Node** a, Node** b);
-
-int     find_optimal_a(Node* a, int value);
-void    push_optimal_a(Node** a, Node** b);
+int     find_optimal_b(Node* a, Node* b);
+void    push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
+void    find_and_push_b(Node** a, Node** b);
+void    push_all_to_b(Node **a, Node** b);
 
 // utils_functions.c
 // only for testing, remove after!!!

@@ -14,9 +14,9 @@
 
 void reverse_rotate(Node** node)
 {
-  Node* first;
-  Node* penultimate;
-  Node* last;
+  Node*   first;
+  Node*   penultimate;
+  Node*   last;
 
   if (!node || !*node)
     return ;

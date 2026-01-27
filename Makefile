@@ -37,19 +37,19 @@ SRC_LIBFT = libft/ft_atoi.c \
   libft/ft_substr.c \
   libft/ft_tolower.c \
   libft/ft_toupper.c
-SRC_PUSH_SWAP = fill_a.c \
-  swap.c \
+SRC_PUSH_SWAP = cost_calculator.c \
+  input_parser.c \
+  push_to_a.c \
+  push_to_b.c \
   push.c \
-  utils.c \
-  rotate.c \
   reverse_rotate.c \
-  phase_one.c \
-  phase_one_utils.c \
-  phase_one_movement.c \
-  phase_two.c
+  rotate.c \
+  swap.c \
+  rotation_strategies.c \
+  stack_operations.c \
 
 # ONLY FOR TESTING, REMOVE!
-UTILS_DEV = utils_dev.c
+UTILS_DEV = debug_display.c
 
 OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o) $(UTILS_DEV:.c=.o)
 MAIN = main.c

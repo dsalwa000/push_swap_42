@@ -84,7 +84,7 @@ void push_optimal_a(Node** a, Node** b)
     pa(a, b);
 }
 
-void phase_two(Node** a, Node** b)
+void push_all_to_a(Node** a, Node** b)
 {
     Node*   min_node;
     int     a_length;

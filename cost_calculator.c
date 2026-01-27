@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int rb_moves(Node* b, int a_value)
+int count_rb(Node* b, int a_value)
 {
   int   min_max[2];
   int   max[2];
@@ -57,7 +57,7 @@ int* b_cost(Node* b, int a_value)
   b_moves = (int*)malloc(2 * sizeof(int));
   if (!b_moves)
     return NULL;
-  b_moves[0] = rb_moves(b, a_value);
+  b_moves[0] = count_rb(b, a_value);
   b_moves[1] = stack_length(b) - b_moves[0];
   return (b_moves);
 }
@@ -84,7 +84,7 @@ int* combinations(Node* node, Node* b, int a_length)
   return (combinations);
 }
 
-int costs(int* combinations, int return_type)
+int costs(int* combinations, int type_return)
 {
   int   costs;
   int   type;
@@ -102,7 +102,7 @@ int costs(int* combinations, int return_type)
     }
     i++;
   }
-  if (return_type)
+  if (type_return)
     return (type);
   return (costs);
 }

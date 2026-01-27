@@ -20,7 +20,7 @@ void init_b(Node** a, Node** b)
 
 void determine_positions(Node* stack)
 {
-  int i;
+  int   i;
 
   if (!stack)
     return ;
@@ -35,7 +35,7 @@ void determine_positions(Node* stack)
 
 int stack_length(Node *stack)
 {
-  int length;
+  int   length;
 
   length = 0;
   while (stack != NULL)
@@ -48,15 +48,17 @@ int stack_length(Node *stack)
 
 void sort_three(Node** a)
 {
-  int first = (*a)->value;
-  int second = (*a)->prev->value;
-  int third = (*a)->prev->prev->value;
+  int   first;
+  int   second;
+  int   third;
 
+  first = (*a)->value;
+  second = (*a)->prev->value;
+  third = (*a)->prev->prev->value;
   if (first > second && first > third)
     ra(a, 0);
   else if (second > first && second > third)
     rra(a, 0);
-  
   first = (*a)->value;
   second = (*a)->prev->value;
   if (first > second)

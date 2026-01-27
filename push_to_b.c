@@ -12,30 +12,30 @@
 
 #include "push_swap.h"
 
-int effecient_a_node_position(Node* a, Node *b)
+int find_optimal_b(Node* a, Node *b)
 {
-  int   final_position;
-  int   efficient_cost;
+  int   optimal_position;
+  int   optimal_cost;
   int   final_cost;
   int   a_length;
 
-  final_position = 0;
+  optimal_position = 0;
   final_cost = INT_MAX;
   a_length = stack_length(a);
   while (a != NULL)
   {
-    efficient_cost = costs(combinations(a, b, a_length), 0);
-    if (final_cost > efficient_cost)
+    optimal_cost = costs(combinations(a, b, a_length), 0);
+    if (final_cost > optimal_cost)
     {
-      final_cost = efficient_cost;
-      final_position = a->position;
+      final_cost = optimal_cost;
+      optimal_position = a->position;
     }
     a = a->prev;
   }
-  return (final_position);
+  return (optimal_position);
 }
 
-void move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
+void push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
 {
   if (type == 0)
   {
@@ -57,33 +57,33 @@ void move_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
     type_three_movements(a, b, a_moves, b_moves);
 }
 
-void use_efficent_position(Node** a, Node** b)
+void find_and_push_b(Node** a, Node** b)
 {
-  Node* efficient_node;
+  Node* optimal_node;
   int*  a_moves;
   int*  b_moves;
   int   type;
   int   a_length;
 
   a_length = stack_length(*a);
-  efficient_node = *a;
-  while (efficient_node->position != effecient_a_node_position(*a, *b))
-    efficient_node = efficient_node->prev;
-  type = costs(combinations(efficient_node, *b, a_length), 1);
-  a_moves = a_cost(efficient_node, a_length);
-  b_moves = b_cost(*b, efficient_node->value);
-  move_to_b(a, b, a_moves, b_moves, type);
+  optimal_node = *a;
+  while (optimal_node->position != find_optimal_b(*a, *b))
+    optimal_node = optimal_node->prev;
+  type = costs(combinations(optimal_node, *b, a_length), 1);
+  a_moves = a_cost(optimal_node, a_length);
+  b_moves = b_cost(*b, optimal_node->value);
+  push_node_to_b(a, b, a_moves, b_moves, type);
   pb(a, b);
 }
 
-void phase_one(Node **a, Node** b)
+void push_all_to_b(Node **a, Node** b)
 {
   int length;
 
   length = stack_length(*a);
   while (length > 3)
   {
-    use_efficent_position(a, b);
+    find_and_push_b(a, b);
     length--;
   }
 }
