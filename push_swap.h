@@ -71,6 +71,8 @@ void    push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
 void    find_and_push_b(Node** a, Node** b);
 void    push_all_to_b(Node **a, Node** b);
 
+void    free_stack(Node** stack);
+
 // utils_functions.c
 // only for testing, remove after!!!
 void    display_stack(Node* stack, char ab);

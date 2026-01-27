@@ -14,6 +14,7 @@
 
 int find_optimal_b(Node* a, Node *b)
 {
+  int*  current_combinations;
   int   optimal_position;
   int   optimal_cost;
   int   final_cost;
@@ -24,12 +25,14 @@ int find_optimal_b(Node* a, Node *b)
   a_length = stack_length(a);
   while (a != NULL)
   {
-    optimal_cost = costs(combinations(a, b, a_length), 0);
+    current_combinations = combinations(a, b, a_length);
+    optimal_cost = costs(current_combinations, 0);
     if (final_cost > optimal_cost)
     {
       final_cost = optimal_cost;
       optimal_position = a->position;
     }
+    free(current_combinations);
     a = a->prev;
   }
   return (optimal_position);
@@ -60,6 +63,7 @@ void push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
 void find_and_push_b(Node** a, Node** b)
 {
   Node* optimal_node;
+  int*  our_combinations;
   int*  a_moves;
   int*  b_moves;
   int   type;
@@ -69,10 +73,14 @@ void find_and_push_b(Node** a, Node** b)
   optimal_node = *a;
   while (optimal_node->position != find_optimal_b(*a, *b))
     optimal_node = optimal_node->prev;
-  type = costs(combinations(optimal_node, *b, a_length), 1);
+  our_combinations = combinations(optimal_node, *b, a_length);
+  type = costs(our_combinations, 1);
   a_moves = a_cost(optimal_node, a_length);
   b_moves = b_cost(*b, optimal_node->value);
   push_node_to_b(a, b, a_moves, b_moves, type);
+  free(our_combinations);
+  free(a_moves);
+  free(b_moves);
   pb(a, b);
 }
 

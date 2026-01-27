@@ -63,6 +63,7 @@ Node* starting_stack(char** argv, int argc)
     a = add_to_stack(a, int_argv[length - i - 1]);
     i++;
   }
+  free(int_argv);
   determine_positions(a);
   return (a);
 }

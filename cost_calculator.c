@@ -81,6 +81,8 @@ int* combinations(Node* node, Node* b, int a_length)
     combinations[1] = b_moves[1];
   combinations[2] = a_moves[0] + b_moves[1];
   combinations[3] = a_moves[1] + b_moves[0];
+  free(a_moves);
+  free(b_moves);
   return (combinations);
 }
 

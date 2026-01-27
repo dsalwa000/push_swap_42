@@ -32,6 +32,6 @@ int main(int argc, char* argv[])
   push_all_to_b(&a, &b);
   sort_three(&a);
   push_all_to_a(&a, &b);
-  display_stacks(a, b);
+  free_stack(&a);
   return 0;
 }
