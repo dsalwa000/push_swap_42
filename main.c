@@ -12,11 +12,15 @@
 
 #include "push_swap.h"
 
-// moim zadaniem teraz jest:
-// -- nowe nazwy dla niekonketnych rzeczy
-// -- dodać alerty dotyczące błędnego podania danych
-// -- wykrycie leakow pamieci -- Trzeba na kampusie
-// -- optymalizacja kodu tam gdzie sie da
+// reszta na jutro
+
+// alerty dotyczące kodu:
+// -- duplikaty (DONE)
+// -- wartosci poza INT
+// -- znaki inne niz cyfry ( w tym + - samo)
+// -- puste argumenty
+// write(2, "Error\n", 6);
+// exit(1); // Pamiętaj o zwolnieniu pamięci przed exit!
 int main(int argc, char* argv[])
 {
   Node*   a;
@@ -32,6 +36,7 @@ int main(int argc, char* argv[])
   push_all_to_b(&a, &b);
   sort_three(&a);
   push_all_to_a(&a, &b);
+  display_stack(a, 'a');
   free_stack(&a);
   return 0;
 }

@@ -23,8 +23,9 @@ typedef struct Node
 }					Node;
 int     argv_length(char** argv);
 int*    argv_int(char** argv, int argc, int length);
-Node*   starting_stack(char** argv, int argc);
 Node*   add_to_stack(Node* a, int value);
+void    check_repetition(Node** a);
+Node*   starting_stack(char** argv, int argc);
 
 Node*   swap(Node* node);
 void    sa(Node** a);

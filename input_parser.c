@@ -47,27 +47,6 @@ int* argv_int(char** argv, int argc, int length)
   return (int_argv);
 }
 
-Node* starting_stack(char** argv, int argc)
-{
-  Node* a;
-  int   i;
-  int*  int_argv;
-  int   length;
-
-  a = NULL;
-  i = 0;
-  length = argv_length(argv);
-  int_argv = argv_int(argv, argc, length);
-  while (length > i)
-  {
-    a = add_to_stack(a, int_argv[length - i - 1]);
-    i++;
-  }
-  free(int_argv);
-  determine_positions(a);
-  return (a);
-}
-
 Node* add_to_stack(Node* a, int value)
 {
   Node*   newNode;
@@ -85,4 +64,42 @@ Node* add_to_stack(Node* a, int value)
     newNode->prev = a;
   }
   return (newNode);
+}
+
+void check_repetition(Node** a)
+{
+  Node*   iterate;
+
+  iterate = (*a)->prev;
+  while (iterate != NULL)
+  {
+    if (iterate->value == (*a)->value)
+    {
+      free_stack(a);
+      exit(1);
+    }
+    iterate = iterate->prev;
+  }
+}
+
+Node* starting_stack(char** argv, int argc)
+{
+  Node* a;
+  int   i;
+  int*  int_argv;
+  int   length;
+
+  a = NULL;
+  i = 0;
+  length = argv_length(argv);
+  int_argv = argv_int(argv, argc, length);
+  while (length > i)
+  {
+    a = add_to_stack(a, int_argv[length - i - 1]);
+    check_repetition(&a);
+    i++;
+  }
+  free(int_argv);
+  determine_positions(a);
+  return (a);
 }
