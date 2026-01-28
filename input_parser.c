@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_a.c                                           :+:      :+:    :+:   */
+/*   input_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 19:00:44 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/20 20:22:09 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/28 20:14:51 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int* argv_int(char** argv, int argc, int length)
   int_argv = (int*)malloc(length * sizeof(int));
   while (argv[i] != NULL)
   {
+    check_if_digit(argv[i], &int_argv);
     if (argc == 2)
       int_argv[i] = ft_atoi(argv[i]);
     else
@@ -76,6 +77,7 @@ void check_repetition(Node** a)
     if (iterate->value == (*a)->value)
     {
       free_stack(a);
+      write(2, "Error\n", 6);
       exit(1);
     }
     iterate = iterate->prev;

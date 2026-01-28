@@ -6,21 +6,15 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:48:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/26 21:09:16 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/28 21:44:57 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// reszta na jutro
-
-// alerty dotyczące kodu:
-// -- duplikaty (DONE)
-// -- wartosci poza INT
-// -- znaki inne niz cyfry ( w tym + - samo)
+// 4, 3, 2, 1 sortuje zle
 // -- puste argumenty
-// write(2, "Error\n", 6);
-// exit(1); // Pamiętaj o zwolnieniu pamięci przed exit!
+// krotkie listy
 int main(int argc, char* argv[])
 {
   Node*   a;
@@ -32,11 +26,18 @@ int main(int argc, char* argv[])
     argv = ft_split(argv[1], ' ');
   a = starting_stack(argv, argc);
   b = NULL;
-  init_b(&a, &b);
-  push_all_to_b(&a, &b);
-  sort_three(&a);
-  push_all_to_a(&a, &b);
-  display_stack(a, 'a');
-  free_stack(&a);
-  return 0;
+  if (stack_length(a) < 5)
+    small_stack(&a, &b);
+  else
+  {
+    init_b(&a, &b);
+    // display_stack(a, 'a');
+    // display_stack(b, 'b');
+    push_all_to_b(&a, &b);
+    sort_three(&a);
+    push_all_to_a(&a, &b);
+    display_stack(a, 'a');
+    free_stack(&a);
+  }
+  return (0);
 }

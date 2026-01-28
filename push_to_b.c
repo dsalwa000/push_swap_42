@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phase_one.c                                        :+:      :+:    :+:   */
+/*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 18:10:14 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/26 18:10:15 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/28 21:51:42 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int find_optimal_b(Node* a, Node *b)
   int   optimal_cost;
   int   final_cost;
   int   a_length;
+  printf("hey\n");
 
   optimal_position = 0;
   final_cost = INT_MAX;

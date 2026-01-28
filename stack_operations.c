@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:28:08 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/26 18:36:26 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/28 21:15:43 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ int stack_length(Node *stack)
     stack = stack->prev;
   }
   return (length);
+}
+
+int smallest_stack(Node* a)
+{
+  int value;
+  
+  value = a->value;
+  while (a != NULL)
+  {
+    if (a->value < value)
+      value = a->value;
+    a = a->prev;
+  }
+  return (value);
 }
 
 void sort_three(Node** a)

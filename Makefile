@@ -47,7 +47,8 @@ SRC_PUSH_SWAP = cost_calculator.c \
   swap.c \
   rotation_strategies.c \
   stack_operations.c \
-  free.c
+  free.c \
+  check_if_digit.c
 
 # ONLY FOR TESTING, REMOVE!
 UTILS_DEV = debug_display.c
