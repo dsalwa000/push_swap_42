@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:28:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/28 21:44:14 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/29 15:45:54 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ void    push_all_to_b(Node **a, Node** b);
 
 void    check_if_digit(char* digit, int** int_argv);
 void    small_stack(Node** a, Node** b);
+void    big_stack(Node** a, Node** b);
 
 void    free_stack(Node** stack);
+void    free_argv(char** argv);
 
 // utils_functions.c
 // only for testing, remove after!!!

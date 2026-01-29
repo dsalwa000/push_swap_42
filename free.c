@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:38:53 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/28 19:37:31 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/29 15:41:56 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,17 @@ void free_stack(Node** stack)
         current = tmp;
     }
     *stack = NULL;
+}
+
+void free_argv(char** argv)
+{
+    int i;
+
+    i = 0;
+    while(argv[i] != NULL)
+    {
+        free(argv[i]);
+        i++;
+    }
+    free (argv);
 }

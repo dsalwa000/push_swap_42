@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 18:10:19 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/29 12:07:29 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:22:31 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int* a_cost(Node* node, int a_length)
   int*  a_cost;
 
   a_cost = (int*)malloc(2 * sizeof(2));
-  printf("hey\n");
   a_cost[0] = node->position;
   a_cost[1] = a_length - a_cost[0];
   return (a_cost);
