@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:48:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/28 21:44:57 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:11:50 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int main(int argc, char* argv[])
   else
   {
     init_b(&a, &b);
-    // display_stack(a, 'a');
-    // display_stack(b, 'b');
     push_all_to_b(&a, &b);
     sort_three(&a);
     push_all_to_a(&a, &b);

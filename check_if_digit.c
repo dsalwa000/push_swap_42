@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 18:43:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/28 21:50:08 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:11:36 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void small_stack(Node** a, Node** b)
         sort_three(a);
     else if (a_length == 4)
     {
+        init_b(a, b);
         find_and_push_b(a, b);
         sort_three(a);
         push_optimal_a(a, b);
