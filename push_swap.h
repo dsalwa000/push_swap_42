@@ -80,7 +80,7 @@ void    free_stack(Node** stack);
 void    free_argv(char** argv);
 void    exit_error();
 
-int     ft_long_atoi(const char *nptr);
+int     ft_long_atoi(const char *nptr, int** argv_int);
 
 // utils_functions.c
 // only for testing, remove after!!!

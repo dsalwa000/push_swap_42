@@ -12,32 +12,30 @@
 
 #include "push_swap.h"
 
-void check_input_errors(char* digit, int** argv_int)
+void check_input_errors(char* dig, int** argv_int)
 {
-    int minuses;
-
-    minuses = 0;
-    while (*digit != '\0')
-    {
-        if (*digit == '-')
-            minuses++;
-        else
-            minuses = 0;
-        if ((!ft_isdigit(*digit) && *digit != '-') || minuses > 1)
-        {
-            free(*argv_int);
-            exit_error();
-        }
-        digit++;
-    }
-    if (minuses > 0)
+    if (ft_strlen(dig) == 1 && dig[0] == '-')
     {
         free(*argv_int);
         exit_error();
     }
+    if (ft_strlen(dig) > 1)
+    {
+        if (dig[0] == '0')
+        {
+            free(*argv_int);
+            exit_error();
+        }
+        if (dig[0] == '-' && dig[1] == '0')
+        {
+            free(*argv_int);
+            exit_error();
+        }
+    }
 }
 
-int ft_long_atoi(const char *nptr)
+// nie dziala przy bardzo duzych liczbach...
+int ft_long_atoi(const char *nptr, int** argv_int)
 {
 	int   positive;
 	long	result;
@@ -51,16 +49,17 @@ int ft_long_atoi(const char *nptr)
 		positive = -1;
 		nptr++;
 	}
-	else if (*nptr == '+')
-		nptr++;
 	while (*nptr != '\0')
 	{
 		if (*nptr < '0' || *nptr > '9')
-			return (result * positive);
+        {
+            free(*argv_int);
+            exit_error();
+        }
 		result = result * 10 + (*nptr - 48);
 		nptr++;
 	}
-    if (result > INT_MAX || result < INT_MIN)
+    if (result * positive > INT_MAX || result * positive < INT_MIN)
         exit_error();
     return (int)(result * positive);
 }
