@@ -41,3 +41,9 @@ void free_argv(char** argv)
     }
     free (argv);
 }
+
+void exit_error()
+{
+    write(2, "Error\n", 6);
+    exit(1);
+}

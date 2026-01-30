@@ -39,16 +39,16 @@ SRC_LIBFT = libft/ft_atoi.c \
   libft/ft_toupper.c
 SRC_PUSH_SWAP = cost_calculator.c \
   input_parser.c \
+  input_validator.c \
+  push.c \
+  swap.c \
+  rotate.c \
+  reverse_rotate.c \
   push_to_a.c \
   push_to_b.c \
-  push.c \
-  reverse_rotate.c \
-  rotate.c \
-  swap.c \
   rotation_strategies.c \
   stack_operations.c \
-  free.c \
-  check_if_digit.c
+  free.c
 
 # ONLY FOR TESTING, REMOVE!
 UTILS_DEV = debug_display.c

@@ -38,11 +38,11 @@ int* argv_int(char** argv, int argc, int length)
   int_argv = (int*)malloc(length * sizeof(int));
   while (argv[i] != NULL)
   {
-    check_if_digit(argv[i], &int_argv);
+    check_input_errors(argv[i], &int_argv);
     if (argc == 2)
-      int_argv[i] = ft_atoi(argv[i]);
+      int_argv[i] = ft_long_atoi(argv[i]);
     else
-      int_argv[i - 1] = ft_atoi(argv[i]);
+      int_argv[i - 1] = ft_long_atoi(argv[i]);
     i++;
   }
   return (int_argv);
@@ -77,8 +77,7 @@ void check_repetition(Node** a)
     if (iterate->value == (*a)->value)
     {
       free_stack(a);
-      write(2, "Error\n", 6);
-      exit(1);
+      exit_error();
     }
     iterate = iterate->prev;
   }

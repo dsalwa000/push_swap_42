@@ -12,8 +12,7 @@
 
 #include "push_swap.h"
 
-// trzeba sprawdzic jeszcze samego minusa oraz arguemnty wieksze oraz mniejsze od INT_MAX i INT_MIN
-void check_if_digit(char* digit, int** argv_int)
+void check_input_errors(char* digit, int** argv_int)
 {
     int minuses;
 
@@ -27,12 +26,45 @@ void check_if_digit(char* digit, int** argv_int)
         if ((!ft_isdigit(*digit) && *digit != '-') || minuses > 1)
         {
             free(*argv_int);
-            write(2, "Error\n", 6);
-            exit(1);
+            exit_error();
         }
         digit++;
     }
+    if (minuses > 0)
+    {
+        free(*argv_int);
+        exit_error();
+    }
 }
+
+int ft_long_atoi(const char *nptr)
+{
+	int   positive;
+	long	result;
+
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
+		nptr++;
+	positive = 1;
+	result = 0;
+	if (*nptr == '-')
+	{
+		positive = -1;
+		nptr++;
+	}
+	else if (*nptr == '+')
+		nptr++;
+	while (*nptr != '\0')
+	{
+		if (*nptr < '0' || *nptr > '9')
+			return (result * positive);
+		result = result * 10 + (*nptr - 48);
+		nptr++;
+	}
+    if (result > INT_MAX || result < INT_MIN)
+        exit_error();
+    return (int)(result * positive);
+}
+
 
 void small_stack(Node** a, Node** b)
 {
@@ -61,4 +93,3 @@ void big_stack(Node** a, Node** b)
     sort_three(a);
     push_all_to_a(a, b);
 }
-

@@ -72,12 +72,15 @@ void    push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type)
 void    find_and_push_b(Node** a, Node** b);
 void    push_all_to_b(Node **a, Node** b);
 
-void    check_if_digit(char* digit, int** int_argv);
+void    check_input_errors(char* digit, int** int_argv);
 void    small_stack(Node** a, Node** b);
 void    big_stack(Node** a, Node** b);
 
 void    free_stack(Node** stack);
 void    free_argv(char** argv);
+void    exit_error();
+
+int     ft_long_atoi(const char *nptr);
 
 // utils_functions.c
 // only for testing, remove after!!!
