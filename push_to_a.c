@@ -73,7 +73,8 @@ void push_optimal_a(Node** a, Node** b)
             opt_position--;
         }
     }
-    else {
+    else
+    {
         i = opt_position;
         while (a_length > i)
         {

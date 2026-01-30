@@ -34,31 +34,30 @@ void check_input_errors(char* dig, int** argv_int)
     }
 }
 
-// nie dziala przy bardzo duzych liczbach...
 int ft_long_atoi(const char *nptr, int** argv_int)
 {
-	int   positive;
-	long	result;
+    int   positive;
+    long    result;
 
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
-		nptr++;
-	positive = 1;
-	result = 0;
-	if (*nptr == '-')
-	{
-		positive = -1;
-		nptr++;
-	}
-	while (*nptr != '\0')
-	{
-		if (*nptr < '0' || *nptr > '9')
+    while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
+        nptr++;
+    positive = 1;
+    result = 0;
+    if (*nptr == '-')
+    {
+        positive = -1;
+        nptr++;
+    }
+    while (*nptr != '\0')
+    {
+        if (*nptr < '0' || *nptr > '9')
         {
             free(*argv_int);
             exit_error();
         }
-		result = result * 10 + (*nptr - 48);
-		nptr++;
-	}
+        result = result * 10 + (*nptr - 48);
+        nptr++;
+    }
     if (result * positive > INT_MAX || result * positive < INT_MIN)
         exit_error();
     return (int)(result * positive);
