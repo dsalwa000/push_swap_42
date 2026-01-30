@@ -50,9 +50,6 @@ SRC_PUSH_SWAP = cost_calculator.c \
   stack_operations.c \
   free.c
 
-# ONLY FOR TESTING, REMOVE!
-UTILS_DEV = debug_display.c
-
 OBJ = $(SRC_PUSH_SWAP:.c=.o) $(SRC_LIBFT:.c=.o) $(UTILS_DEV:.c=.o)
 MAIN = main.c
 

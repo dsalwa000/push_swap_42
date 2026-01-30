@@ -6,58 +6,58 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:08:57 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/28 19:38:13 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/30 21:36:51 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_rotate(Node** node)
+void	reverse_rotate(t_node **node)
 {
-    Node*   first;
-    Node*   penultimate;
-    Node*   last;
+	t_node	*first;
+	t_node	*penultimate;
+	t_node	*last;
 
-    if (!node || !*node)
-        return ;
-    if ((*node)->prev == NULL)
-        return ;
-    first = *node;
-    last = *node;
-    while(last->prev != NULL)
-        last = last->prev;
-    penultimate = last->next;
-    last->prev = first;
-    last->next = NULL;
-    penultimate->prev = NULL;
-    first->next = last;
-    *node = last;
-    determine_positions(*node);
+	if (!node || !*node)
+		return ;
+	if ((*node)->prev == NULL)
+		return ;
+	first = *node;
+	last = *node;
+	while (last->prev != NULL)
+		last = last->prev;
+	penultimate = last->next;
+	last->prev = first;
+	last->next = NULL;
+	penultimate->prev = NULL;
+	first->next = last;
+	*node = last;
+	determine_positions(*node);
 }
 
-void rra(Node **a, int rrr)
+void	rra(t_node **a, int rrr)
 {
-    if (!a || !*a)
-        return ;
-    reverse_rotate(a);
-    if (!rrr)
-        ft_putstr_fd("rra\n", 1);
+	if (!a || !*a)
+		return ;
+	reverse_rotate(a);
+	if (!rrr)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void rrb(Node **b, int rrr)
+void	rrb(t_node **b, int rrr)
 {
-    if (!b || !*b)
-        return ;
-    reverse_rotate(b);
-    if (!rrr)
-        ft_putstr_fd("rrb\n", 1);
+	if (!b || !*b)
+		return ;
+	reverse_rotate(b);
+	if (!rrr)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void rrr(Node **a, Node **b)
+void	rrr(t_node **a, t_node **b)
 {
-    if (!a || !*a || !b || !*b)
-        return ;
-    rra(a, 1);
-    rrb(b, 1);
-    ft_putstr_fd("rrr\n", 1);
+	if (!a || !*a || !b || !*b)
+		return ;
+	rra(a, 1);
+	rrb(b, 1);
+	ft_putstr_fd("rrr\n", 1);
 }

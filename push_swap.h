@@ -6,7 +6,7 @@
 /*   By: dsalwa <dsalwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:28:39 by dsalwa            #+#    #+#             */
-/*   Updated: 2026/01/29 15:45:54 by dsalwa           ###   ########.fr       */
+/*   Updated: 2026/01/30 22:03:08 by dsalwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,79 +14,60 @@
 # include "libft/libft.h"
 # define PUSH_SWAP_H
 
-typedef struct Node
+typedef struct t_node
 {
-	int			    value;
-	struct Node     *next;
-    struct Node     *prev;
-    int             position;
-}					Node;
-int     argv_length(char** argv);
-int*    argv_int(char** argv, int argc, int length);
-Node*   add_to_stack(Node* a, int value);
-void    check_repetition(Node** a);
-Node*   starting_stack(char** argv, int argc);
-
-Node*   swap(Node* node);
-void    sa(Node** a);
-void    sb(Node** b);
-void    ss(Node** a, Node** b);
-
-void    push(Node**a, Node** b);
-void    pa(Node** a, Node** b);
-void    pb(Node** a, Node** b);
-
-void    rotate(Node** node);
-void    ra(Node **a, int rr);
-void    rb(Node **b, int rr);
-void    rr(Node **a, Node **b);
-
-void    reverse_rotate(Node** node);
-void    rra(Node **a, int rrr);
-void    rrb(Node **b, int rrr);
-void    rrr(Node **a, Node **b);
-
-void    init_b(Node** a, Node** b);
-void    determine_positions(Node* stack);
-int     stack_length(Node *stack);
-void    sort_three(Node** a);
-
-Node*   find_min_node(Node* a);
-int     find_optimal_a(Node* a, int value_b);
-void    push_optimal_a(Node** a, Node** b);
-void    push_all_to_a(Node** a, Node** b);
-
-int     count_rb(Node* b, int a_value);
-int*    a_cost(Node* node, int a_length);
-int*    b_cost(Node* b, int a_value);
-int*    combinations(Node* node, Node* b, int a_length);
-int     costs(int* combinations, int return_type);
-
-void    r_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
-void    rr_movement(Node** a, Node** b, int* bigger, int* smaller, int type);
-void    type_two_movements(Node** a, Node** b, int* a_moves, int* b_moves);
-void    type_three_movements(Node** a, Node** b, int* a_moves, int* b_moves);
-
-int     find_optimal_b(Node* a, Node* b);
-void    push_node_to_b(Node** a, Node** b, int* a_moves, int* b_moves, int type);
-void    find_and_push_b(Node** a, Node** b);
-void    push_all_to_b(Node **a, Node** b);
-
-void    check_input_errors(char* digit, int** int_argv);
-void    small_stack(Node** a, Node** b);
-void    big_stack(Node** a, Node** b);
-
-void    free_stack(Node** stack);
-void    free_argv(char** argv);
-void    exit_error();
-
-int     ft_long_atoi(const char *nptr, int** argv_int);
-
-// utils_functions.c
-// only for testing, remove after!!!
-void    display_stack(Node* stack, char ab);
-void    display_stacks(Node *a, Node *b);
-void    show_combinations(int* combinations);
-void    show_moves(int* moves, char type);
+	int				value;
+	struct t_node	*next;
+	struct t_node	*prev;
+	int				position;
+}	t_node;
+int		argv_length(char **argv);
+int		*argv_int(char **argv, int argc, int length);
+t_node	*add_to_stack(t_node *a, int value);
+void	check_repetition(t_node **a);
+t_node	*starting_stack(char **argv, int argc);
+t_node	*swap(t_node *node);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	push(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+void	rotate(t_node **node);
+void	ra(t_node **a, int rr);
+void	rb(t_node **b, int rr);
+void	rr(t_node **a, t_node **b);
+void	reverse_rotate(t_node **node);
+void	rra(t_node **a, int rrr);
+void	rrb(t_node **b, int rrr);
+void	rrr(t_node **a, t_node **b);
+void	init_b(t_node **a, t_node **b);
+void	determine_positions(t_node *stack);
+int		stack_length(t_node *stack);
+void	sort_three(t_node **a);
+t_node	*find_min_node(t_node *a);
+int		find_optimal_a(t_node *a, int value_b);
+void	push_optimal_a(t_node **a, t_node **b);
+void	push_all_to_a(t_node **a, t_node **b);
+int		count_rb(t_node *b, int a_value);
+int		*a_cost(t_node *node, int a_length);
+int		*b_cost(t_node *b, int a_value);
+int		*comb(t_node *node, t_node *b, int a_length);
+int		costs(int *combinations, int return_type);
+void	r_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type);
+void	rr_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type);
+void	type_two_movements(t_node **a, t_node **b, int *a_moves, int *b_moves);
+void	type_three_movements(t_node **a, t_node **b, int *a_moves, int *b_moves);
+int		find_optimal_b(t_node *a, t_node *b);
+void	push_node_to_b(t_node **a, t_node **b, t_node *optimal, int type);
+void	find_and_push_b(t_node **a, t_node **b);
+void	push_all_to_b(t_node **a, t_node **b);
+void	check_input_errors(char *digit, int **int_argv);
+void	small_stack(t_node **a, t_node **b);
+void	big_stack(t_node **a, t_node **b);
+void	free_stack(t_node **stack);
+void	free_argv(char **argv);
+void	exit_error(void);
+int		ft_long_atoi(const char *nptr, int **argv_int);
 
 #endif
