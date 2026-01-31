@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 		argv = ft_split(argv[1], ' ');
 		split_done = 1;
 	}
-	a = starting_stack(argv, argc);
+	a = initiate_a(argv, argc);
 	b = NULL;
 	if (stack_length(a) < 5)
 		small_stack(&a, &b);

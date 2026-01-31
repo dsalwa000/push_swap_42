@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	r_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type)
+void	rr_ra(t_node **a, t_node **b, int *bigger, int *smaller)
 {
 	int	i;
 
@@ -24,15 +24,29 @@ void	r_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type)
 	}
 	while (i < bigger[0])
 	{
-		if (type == 0)
-			ra(a, 0);
-		if (type == 1)
-			rb(b, 0);
+		ra(a, 0);
 		i++;
 	}
 }
 
-void	rr_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type)
+void	rr_rb(t_node **a, t_node **b, int *bigger, int *smaller)
+{
+	int	i;
+
+	i = 0;
+	while (i < smaller[0])
+	{
+		rr(a, b);
+		i++;
+	}
+	while (i < bigger[0])
+	{
+		rb(b, 0);
+		i++;
+	}
+}
+
+void	rrr_rra(t_node **a, t_node **b, int *bigger, int *smaller)
 {
 	int	i;
 
@@ -44,46 +58,24 @@ void	rr_movement(t_node **a, t_node **b, int *bigger, int *smaller, int type)
 	}
 	while (i < bigger[1])
 	{
-		if (type == 0)
-			rra(a, 0);
-		if (type == 1)
-			rrb(b, 0);
-		i++;
-	}
-}
-
-void	type_two_movements(t_node **a, t_node **b, int *a_moves, int *b_moves)
-{
-	int	i;
-
-	i = 0;
-	while (a_moves[0] > i)
-	{
-		ra(a, 0);
-		i++;
-	}
-	i = 0;
-	while (b_moves[1] > i)
-	{
-		rrb(b, 0);
-		i++;
-	}
-}
-
-void	type_three_movements(t_node **a, t_node **b, int *a_moves, int *b_moves)
-{
-	int	i;
-
-	i = 0;
-	while (a_moves[1] > i)
-	{
 		rra(a, 0);
 		i++;
 	}
+}
+
+void	rrr_rrb(t_node **a, t_node **b, int *bigger, int *smaller)
+{
+	int	i;
+
 	i = 0;
-	while (b_moves[0] > i)
+	while (i < smaller[1])
 	{
-		rb(b, 0);
+		rrr(a, b);
+		i++;
+	}
+	while (i < bigger[1])
+	{
+		rrb(b, 0);
 		i++;
 	}
 }

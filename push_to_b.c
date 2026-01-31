@@ -48,16 +48,16 @@ void	push_node_to_b(t_node **a, t_node **b, t_node *optimal, int type)
 	if (type == 0)
 	{
 		if (a_moves[0] > b_moves[0])
-			r_movement(a, b, a_moves, b_moves, 0);
+			rr_ra(a, b, a_moves, b_moves);
 		else
-			r_movement(a, b, b_moves, a_moves, 1);
+			rr_rb(a, b, b_moves, a_moves);
 	}
 	else if (type == 1)
 	{
 		if (a_moves[1] > b_moves[1])
-			rr_movement(a, b, a_moves, b_moves, 0);
+			rrr_rra(a, b, a_moves, b_moves);
 		else
-			rr_movement(a, b, b_moves, a_moves, 1);
+			rrr_rrb(a, b, b_moves, a_moves);
 	}
 	else if (type == 2)
 		type_two_movements(a, b, a_moves, b_moves);
@@ -70,6 +70,7 @@ void	push_node_to_b(t_node **a, t_node **b, t_node *optimal, int type)
 void	find_and_push_b(t_node **a, t_node **b)
 {
 	t_node	*optimal;
+	int		*combinations;
 	int		type;
 	int		a_length;
 
@@ -77,7 +78,9 @@ void	find_and_push_b(t_node **a, t_node **b)
 	optimal = *a;
 	while (optimal->position != find_optimal_b(*a, *b))
 		optimal = optimal->prev;
-	type = costs(comb(optimal, *b, a_length), 1);
+	combinations = comb(optimal, *b, a_length);
+	type = costs(combinations, 1);
+	free(combinations);
 	push_node_to_b(a, b, optimal, type);
 	pb(a, b);
 }

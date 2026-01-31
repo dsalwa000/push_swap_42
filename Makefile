@@ -47,6 +47,7 @@ SRC_PUSH_SWAP = cost_calculator.c \
   push_to_a.c \
   push_to_b.c \
   rotation_strategies.c \
+  mixed_rotation_strategies.c \
   stack_operations.c \
   free.c
 

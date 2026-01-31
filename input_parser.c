@@ -83,7 +83,7 @@ void	check_repetition(t_node **a)
 	}
 }
 
-t_node	*starting_stack(char **argv, int argc)
+t_node	*initiate_a(char **argv, int argc)
 {
 	t_node	*a;
 	int		*int_argv;
