@@ -12,17 +12,15 @@
 
 #include "push_swap.h"
 
-int	find_optimal_b(t_node *a, t_node *b)
+int	find_optimal_b(t_node *a, t_node *b, int a_length)
 {
 	int		*current_combinations;
 	int		optimal_position;
 	int		optimal_cost;
 	int		final_cost;
-	int		a_length;
 
 	optimal_position = 0;
 	final_cost = INT_MAX;
-	a_length = stack_length(a);
 	while (a != NULL)
 	{
 		current_combinations = comb(a, b, a_length);
@@ -76,7 +74,7 @@ void	find_and_push_b(t_node **a, t_node **b)
 
 	a_length = stack_length(*a);
 	optimal = *a;
-	while (optimal->position != find_optimal_b(*a, *b))
+	while (optimal->position != find_optimal_b(*a, *b, a_length))
 		optimal = optimal->prev;
 	combinations = comb(optimal, *b, a_length);
 	type = costs(combinations, 1);

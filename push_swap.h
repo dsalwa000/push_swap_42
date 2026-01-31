@@ -60,7 +60,7 @@ void	rrr_rra(t_node **a, t_node **b, int *bigger, int *smaller);
 void	rrr_rrb(t_node **a, t_node **b, int *bigger, int *smaller);
 void	type_two_movements(t_node **a, t_node **b, int *a_moves, int *b_moves);
 void	type_three_movements(t_node **a, t_node **b, int *a_moves, int *b_moves);
-int		find_optimal_b(t_node *a, t_node *b);
+int		find_optimal_b(t_node *a, t_node *b, int a_length);
 void	push_node_to_b(t_node **a, t_node **b, t_node *optimal, int type);
 void	find_and_push_b(t_node **a, t_node **b);
 void	push_all_to_b(t_node **a, t_node **b);
